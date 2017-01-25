@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html data-ng-app="">
+<head>
+  <title>Using Angular JS Directives and Data Binding</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body data-ng-init="customers = [{name: 'John Smith',city: 'Phoenix'},{name: 'Jeremy Wilson',city: 'Seattle'},{name: 'Anika Wilson',city: 'Renton'}]">
+  <header>
+    <h2>Using Angular JS Directives and Data Binding</h2>
+  </header>
+  <section>
+    <span>{{ foo }} </span>
+    Name:<br />
+    <input type="text" data-ng-model="name"/> {{ name }}<br />
+    <ul>
+      <!-- <li data-ng-repeat="cust in customers">{{ personName }}</li> -->
+      <li data-ng-repeat="cust in customers | filter:name">{{ cust.name }} - {{ cust.city }}</li>
+    </ul>
+  </section>
+  <footer>
+  </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+  <!-- <script src="js/angular.min.js"></script> -->
+  </body>
+</html>

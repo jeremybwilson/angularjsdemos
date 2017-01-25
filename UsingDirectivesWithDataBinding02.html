@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html data-ng-app="demoApp">
+<head>
+  <title>Using Angular JS Directives and Data Binding</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body data-ng-controller="SimpleController">
+<!-- <body>
+  <div class="container" data-ng-controller="SimpleController"> -->
+  <header>
+    <h2>Using Angular JS Directives and Data Binding</h2>
+  </header>
+  <section>
+    Name:<br />
+    <input type="text" data-ng-model="name"/><br />
+    <ul>
+      <!-- <li data-ng-repeat="personName in names">{{ personName }}</li> -->
+      <li data-ng-repeat="cust in customers | filter:name | orderBy:'name'">{{ cust.name }} - {{ cust.city }}</li>
+    </ul>
+    <!-- </div> -->
+    <!-- <input type="text" data-ng-model="nameText" />
+    <ul>
+      <li data-ng-repeat="personName in names">{{ personName }}</li>
+      <li data-ng-repeat="cust in customers | filter:nameText | orderBy:'name'">{{ cust.name }} - {{ cust.city }}</li>
+    </ul> -->
+  </section>
+  <footer>
+  </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+  <script>
+  var demoApp = angular.module("demoApp", []);
+  function SimpleController($scope) {
+    $scope.customers = [
+      { name: "John Smith", city: "Phoenix" },
+      { name: "Jane Doe", city: "Atlanta" },
+      { name: "Jeremy Wilson", city: "Seattle" },
+      { name: "Anika Wilson", city: "Renton" }
+    ];
+  };
+  demoApp.controller("SimpleController", SimpleController);
+  </script>
+  <!-- <script src="js/angular.min.js"></script>
+  <script src="../js/app.js"></script> -->
+  </body>
+</html>

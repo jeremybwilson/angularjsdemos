@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app>
+  <head>
+    <title>Angular JS Hello World</title>
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body ng-init="name='Jeremy Wilson'">
+    <section>
+      <div class="section">
+        <div ng-hide="isHidden">
+          Name: <input type="text" ng-model="name"/> 
+          <span ng-bind="name"></span> 
+        </div>
+        <div>
+          Hide: <input type="checkbox" ng-model="isHidden"/><br />
+          <button ng-click="name='Alexander Wilson'">Change Name</button>
+        </div>
+      </div>
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+  </body>
+</html>

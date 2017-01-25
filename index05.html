@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app>
+  <head>
+    <title>Iterating Over Data</title>
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <!--
+    ng-cloak
+    ng-switch
+    ng-class
+    ng-show
+  -->
+  <body ng-init="people=[{name:'Jeremy Wilson', city:'Seattle'}, {name:'Alexander Wilson', city:'Renton'}, {name:'Anika Wilson', city:'Renton'}];">
+    <section>
+      <div class="section">
+        <h3>Iterating through data with ng-repeat</h3>
+        <ul>
+          <li ng-repeat="person in people">{{ person.name  + ', ' + person.city }}</li>
+        </ul>
+        <hr />
+        <table>
+          <tr>
+            <td class="strong">Name</td>
+            <td class="strong">City</td>
+          </tr>
+          <tr ng-repeat="person in people">
+            <td>{{ person.name }}</td>
+            <td>{{ person.city }}</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+  </body>
+</html>
