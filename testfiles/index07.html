@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en" ng-app>
+  <head>
+    <meta charset="utf-8">
+    <!-- If you delete this meta tag World War Z will become a reality -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iterating Over Data</title>
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body ng-init="people=[{name:'Jeremy Wilson', city:'Seattle'},{name:'Alexander Wilson', city:'Renton'},{name:'Anika Wilson', city:'Kent'}];">
+  <style>
+  .row {
+    width: 100%;
+  }
+  .left-col, .right-col{
+    width: 50%;
+  }
+  </style>
+    <section>
+      <div class="section">
+        <h3>Iterating through data and filtering with data-ng-repeat</h3>
+        <hr />
+        <div class="row">
+          <div class="left-col">
+            <span class="strong">Name</span>
+          </div>
+          <div class="right-col">
+            <span class="strong">City</span>
+          </div>
+        </div>
+        <div class="row" data-ng-repeat="person in people| filter:nameText | orderBy:'city'"><div class="left-col">{{ person.name }}</div><div class="left-col">{{ person.city }}</div>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+  </body>
+</html>

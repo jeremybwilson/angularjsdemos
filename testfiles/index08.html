@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en" ng-app>
+  <head>
+    <meta charset="utf-8">
+    <!-- If you delete this meta tag World War Z will become a reality -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iterating Over Data</title>
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body ng-init="customers=[{joined: '2012-12-01', name:'Jeremy Wilson', city:'Seattle', orderTotal: '30.00'},{joined: '2014-07-01', name:'Alexander Wilson', city:'Renton', orderTotal: '20.00'},{joined: '2016-11-01', name:'Anika Wilson', city:'Kent', orderTotal: '10.00'}];">
+  <style>
+  .row {
+    width: 100%;
+  }
+  .left-col, .right-col {
+    width: 50%;
+  }
+  .col-1, .col-2, .col-3, .col-4 {
+    float: left;
+    width: 25%;
+  }
+  </style>
+    <section>
+      <div class="section">
+        <h3>Iterating through data and filtering with data-ng-repeat</h3>
+        <hr />
+        Filter: <input type="text" ng-model="customerFilter.name" /><br /><br />
+        <div class="row">
+          <div class="col-1">
+            <span class="strong">Name</span>
+          </div>
+          <div class="col-2">
+            <span class="strong">City</span>
+          </div>
+          <div class="col-3">
+            <span class="strong">Order Total</span>
+          </div>
+          <div class="col-4">
+            <span class="strong">Joined</span>
+          </div>
+        </div>
+        <div class="row" data-ng-repeat="cust in customers | filter:customerFilter | orderBy:'name'">
+          <div class="col-1">{{ cust.name | uppercase }}</div>
+          <div class="col-2">{{ cust.city | uppercase }}</div>
+          <div class="col-3">{{ cust.orderTotal | currency }}</div>
+          <div class="col-3">{{ cust.joined | date }}</div>
+        </div>
+      </div>
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+  </body>
+</html>

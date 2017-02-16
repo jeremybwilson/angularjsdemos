@@ -1,49 +1,15 @@
-﻿/// <reference path="../Scripts/angular-1.1.4.js" />
+﻿var customersApp = angular.module('customersApp', []);
 
-/*#######################################################################
-  
-  Dan Wahlin
-  http://twitter.com/DanWahlin
-  http://weblogs.asp.net/dwahlin
-  http://pluralsight.com/training/Authors/Details/dan-wahlin
+(function() {
 
-  Normally like to break AngularJS apps into the following folder structure
-  at a minimum:
+var CustomersController = function ($scope) {
+  $scope.customers = [
+    {joined: '2012-12-01', name:'Jeremy Wilson', city:'Seattle', orderTotal: '30.00'},
+    {joined: '2014-07-01', name:'Alexander Wilson', city:'Renton', orderTotal: '20.00'},
+    {joined: '2016-11-01', name:'Anika Wilson', city:'Kent', orderTotal: '10.00'}
+  ];
+};
 
-  /app
-      /controllers      
-      /directives
-      /services
-      /partials
-      /views
+angular.module('customersApp').controller('CustomersController', CustomersController);
 
-  #######################################################################*/
-
-var app = angular.module('customersApp', ['ngRoute']);
-
-//This configures the routes and associates each route with a view and a controller
-app.config(function ($routeProvider) {
-    $routeProvider
-        .when('/customers',
-            {
-                controller: 'CustomersController',
-                templateUrl: '/app/partials/customers.html'
-            })
-        //Define a route that has a route parameter in it (:customerID)
-        .when('/customerorders/:customerID',
-            {
-                controller: 'CustomerOrdersController',
-                templateUrl: '/app/partials/customerOrders.html'
-            })
-        //Define a route that has a route parameter in it (:customerID)
-        .when('/orders',
-            {
-                controller: 'OrdersController',
-                templateUrl: '/app/partials/orders.html'
-            })
-        .otherwise({ redirectTo: '/customers' });
-});
-
-
-
-
+}());

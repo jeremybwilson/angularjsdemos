@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en" ng-app="customersApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ngRoute and ngView</title>
+
+    <link rel="stylesheet" href="../../foundation6/css/foundation.css">
+    <!-- This is how you would link your custom stylesheet -->
+    <link rel="stylesheet" href="../../foundation6/css/app.css">
+    <!-- <<script src="../../foundation6/js/vendor/modernizr.js"></script> -->
+  </head>
+  <body>
+    <section>
+      <div ng-view></div>
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular-route.js"></script>
+    <script src="app/app00.js"></script>
+    <script src="app/controllers/customersController.js"></script>
+    <script src="app/controllers/ordersController.js"></script>
+    <script src="app/services/customersFactory.js"></script>
+    <script src="../../foundation6/js/vendor/jquery.js"></script>
+    <script src="../../foundation6/js/vendor/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>

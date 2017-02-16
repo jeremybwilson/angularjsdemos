@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en" ng-app>
+  <head>
+    <meta charset="utf-8">
+    <!-- If you delete this meta tag World War Z will become a reality -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iterating Over Data</title>
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body ng-controller="CustomersController as ctrl">
+  <style>
+  .row {
+    width: 100%;
+  }
+  .left-col, .right-col {
+    width: 50%;
+  }
+  .col-1, .col-2, .col-3, .col-4 {
+    float: left;
+    width: 25%;
+  }
+  </style>
+    <section>
+      <div class="section">
+        <h2>Customers</h2>
+        <hr />
+        Filter: <input type="text" ng-model="customerFilter.name" /><br /><br />
+        <div class="row">
+          <div class="col-1" ng-click="doSort('name')">
+            <span class="strong">Name</span>
+          </div>
+          <div class="col-2" ng-click="doSort('city')">
+            <span class="strong">City</span>
+          </div>
+          <div class="col-3" ng-click="doSort('orderTotal')">
+            <span class="strong">Order Total</span>
+          </div>
+          <div class="col-4" ng-click="doSort('joined')">
+            <span class="strong">Joined</span>
+          </div>
+        </div>
+        <div class="row" data-ng-repeat="cust in ctrl.customers | filter:customerFilter | orderBy:sortBy:reverse">
+          <div class="col-1">{{ cust.name }}</div>
+          <div class="col-2">{{ cust.city }}</div>
+          <div class="col-3">{{ cust.orderTotal | currency }}</div>
+          <div class="col-3">{{ cust.joined | date }}</div>
+        </div>
+        <span>Total customers: {{ ctrl.customers.length }} </span>
+      </div>
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.js"></script>
+    <script src="../app/controllers/customersController.js"></script>
+  </body>
+</html>
